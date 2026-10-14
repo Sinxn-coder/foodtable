@@ -2,9 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f3ec" />
+    <meta name="description" content="Your food duty schedule." />
     <title>FoodTable · Your food duty schedule</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./icons/icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="FoodTable" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./motion.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,5 +24,10 @@
     <main id="app" class="shell"></main>
     <footer class="credit">Built With <span role="img" aria-label="love">💙</span> by <a href="https://www.etriq.online" target="_blank" rel="noopener noreferrer">ETRIQ</a></footer>
     <script type="module" src="./src/foodtable-app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+      }
+    </script>
   </body>
 </html>
