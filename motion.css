@@ -1,0 +1,52 @@
+.credit {
+  padding: 0 20px 32px;
+  text-align: center;
+  font-size: 13px;
+  color: #77736d;
+}
+.credit span { display: inline-block; margin: 0 3px; }
+.credit a {
+  color: #252522;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #49785b;
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .call-button, .mini-call, .icon-button, .day-toggle, .credit a {
+    transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+  }
+  .call-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px #25252222;
+  }
+  .mini-call:hover, .icon-button:hover { transform: rotate(-6deg) scale(1.06); }
+  .call-button:active, .mini-call:active, .icon-button:active, .day-chip:active {
+    transform: scale(.96);
+  }
+  .day-toggle:hover { background-color: #faf5f7; }
+  .duty-day.open .day-body { animation: reveal-duty 260ms ease both; }
+  .roster:not(.hidden) .duty-day { animation: reveal-duty 320ms ease both; }
+  .roster:not(.hidden) .duty-day:nth-child(3) { animation-delay: 40ms; }
+  .roster:not(.hidden) .duty-day:nth-child(4) { animation-delay: 80ms; }
+  .credit { animation: reveal-duty 500ms 200ms ease both; }
+  .credit:hover span { animation: heart-pop 500ms ease; }
+  @keyframes reveal-duty {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heart-pop {
+    0%, 100% { transform: scale(1); }
+    45% { transform: scale(1.2); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
